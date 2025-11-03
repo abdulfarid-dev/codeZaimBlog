@@ -1,0 +1,154 @@
+/* Posts.css */
+
+/* Container */
+.posts-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Heading */
+.posts-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #6a11cb;
+}
+
+/* Forms */
+.posts-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+}
+
+.posts-container input[type="text"],
+.posts-container textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.posts-container input[type="text"]:focus,
+.posts-container textarea:focus {
+  border-color: #6a11cb;
+  outline: none;
+}
+
+/* Buttons */
+.posts-container button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.posts-container form button[type="submit"] {
+  background: #6a11cb;
+  color: #fff;
+}
+
+.posts-container form button[type="submit"]:hover {
+  background: #2575fc;
+}
+
+.posts-container form button {
+  margin-right: 10px;
+}
+
+/* Posts List */
+.posts-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual Post Card */
+.posts-list li {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.posts-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.12);
+}
+
+.posts-list li strong {
+  font-size: 1.2rem;
+  color: #6a11cb;
+}
+
+.posts-list li p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Action Buttons */
+.posts-list li div > button {
+  background: #fff;
+  color: #6a11cb;
+  border: 1px solid #6a11cb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.posts-list li div > button:hover {
+  background: #6a11cb;
+  color: #fff;
+}
+
+/* Like Section */
+.like-section {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.like-section button {
+  background: #fff;
+  color: #2575fc;
+  border: 1px solid #2575fc;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.like-section button:hover {
+  background: #2575fc;
+  color: #fff;
+}
+
+.like-section span {
+  font-weight: bold;
+}
+
+/* Liked Users */
+.posts-list li div span {
+  font-size: 0.85rem;
+  color: #28a745;
+  margin-top: 5px;
+  display: inline-block;
+}
