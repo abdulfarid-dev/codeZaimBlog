@@ -1,30 +1,50 @@
-import express from 'express'
-const app=express()
-import mongoose from 'mongoose'
-import UserRoutes from './routes/userRoutes.js'
-import cors from 'cors'
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import UserRoutes from "./routes/userRoutes.js";
+
+const app = express();
+
+import dotenv from "dotenv";
+dotenv.config();
 
 
-// ✅ 1. Enable CORS (before routes)
+// ---------------------------------------
+// 1. CORS
+// ---------------------------------------
+const allowedOrigins = [
+  "http://localhost:5173",                 // Local development
+  "https://codezaimblog.netlify.app"       // Deployed frontend
+];
+
 app.use(cors({
-  origin: "http://localhost:5173", // frontend URL
+  origin: allowedOrigins,
   credentials: true
 }));
 
-app.use(express.json())
+// ---------------------------------------
+// 2. Middleware
+// ---------------------------------------
+app.use(express.json());
 
+// ---------------------------------------
+// 3. Routes
+// ---------------------------------------
+app.use("/user", UserRoutes);
 
+// ---------------------------------------
+// 4. MongoDB Connection
+// ---------------------------------------
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("MongoDB connected successfully"))
+  .catch((err) => console.log("MongoDB Error:", err));
 
-app.use('/user',UserRoutes)
+// ---------------------------------------
+// 5. PORT for Render
+// ---------------------------------------
+const port = process.env.PORT || 5000;
 
-// mongodb+srv://blog-application-username:sa44hStECgTn9R19@blog-cluster.fxxaqj0.mongodb.net/?retryWrites=true&w=majority&appName=blog-cluster
-mongoose.connect('mongodb://localhost:27017')
-    .then(()=>{console.log("mongodb connected successfully")})
-    .catch((err)=>{console.log(err)})
-
-    
-let port=5000;
-
-app.listen(port,()=>{
-    console.log("port is running on 5000")
-})
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
