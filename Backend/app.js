@@ -17,20 +17,12 @@ app.use(express.json())
 
 app.use('/user',UserRoutes)
 
-
-mongoose.connect('mongodb+srv://blog-application-username:sa44hStECgTn9R19@blog-cluster.fxxaqj0.mongodb.net/?retryWrites=true&w=majority&appName=blog-cluster')
+// mongodb+srv://blog-application-username:sa44hStECgTn9R19@blog-cluster.fxxaqj0.mongodb.net/?retryWrites=true&w=majority&appName=blog-cluster
+mongoose.connect('mongodb://localhost:27017')
     .then(()=>{console.log("mongodb connected successfully")})
     .catch((err)=>{console.log(err)})
 
     
-
-
-
-
-
-
-
-
 let port=5000;
 
 app.listen(port,()=>{
