@@ -12,13 +12,11 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 - **Blog Posts**
   - Create and publish blog posts
   - View all published posts
-  - Like/unlike posts from other users
   - Post timestamps for tracking creation time
 
 - **User Management**
   - User profiles with name and email
   - User-specific post creation
-  - Track which users liked each post
 
 - **Responsive UI**
   - Modern React components with React Router
@@ -77,8 +75,7 @@ MernStackBlog/
     │   │   └── auth/
     │   │       ├── Login.jsx           # Login page
     │   │       ├── Register.jsx        # Registration page
-    │   │       ├── dummylogin.jsx      # Dummy login (testing)
-    │   │       └── dummmyRegister.jsx  # Dummy register (testing)
+    │   │       
     │   ├── css/                        # Component stylesheets
     │   └── assets/
     ├── package.json

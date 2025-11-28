@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    // navigate("/login");
+    navigate("/login");
   };
 
   return (

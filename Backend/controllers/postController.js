@@ -38,7 +38,7 @@ export const allpost = async (req, res) => {
 export const updatePost = async (req, res) => {
     try {
         const _id = req.params._id;     // you want _id → kept same
-        const { title } = req.body;
+    const { title, content } = req.body;
 
         // find the post
         let post = await Post.findById(_id);
@@ -47,17 +47,18 @@ export const updatePost = async (req, res) => {
             return res.status(404).send({ message: "Post not found" });
         }
 
-        // correct updateOne syntax
-        await post.updateOne(
-            { title: title }   // fields to update
-        );
+        // update both title and content if provided
+        await post.updateOne({
+            title: title,
+            content: content
+        });
 
-        // not required but if you want to keep it
-        await post.save();
+        // return the latest document
+        const updatedPost = await Post.findById(_id);
 
-        return res.status(201).send({
+        return res.status(200).send({
             message: "Post updated successfully",
-            updatedPost: post
+            updatedPost: updatedPost
         });
 
     } catch (error) {

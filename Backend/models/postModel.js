@@ -14,12 +14,7 @@ const postSchema=new Schema({
         ref:"User",
         required: false
     },
-    // likedBy:[{
-    //     type:Schema.Types.ObjectId,
-    //     ref:"user",
-    //     default: []
-    // }],
-
+    
     
 },{timestamps:true})
 
