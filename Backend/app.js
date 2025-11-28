@@ -10,10 +10,10 @@ dotenv.config();
 
 
 // ---------------------------------------
-// 1. CORS
+// 1. CORS Configuration
 // ---------------------------------------
 const allowedOrigins = [
-  "http://localhost:5173",                 // Local development
+  "http://localhost:5173",                  // Local development
   "https://codezaimblog.netlify.app"       // Deployed frontend
 ];
 

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Navbar from './componenet/Navbar'
-import HomePage from './componenet/Home'
-import LoginPage from './componenet/auth/Login'
-import RegisterPage from './componenet/auth/Register'
-import Posts from './componenet/Posts'
+import Navbar from './component/Navbar'
+import HomePage from './component/Home'
+import LoginPage from './component/auth/Login'
+import RegisterPage from './component/auth/Register'
+import Posts from './component/Posts'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 

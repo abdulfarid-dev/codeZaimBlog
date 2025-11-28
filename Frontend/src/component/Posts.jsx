@@ -50,14 +50,16 @@ export default function Posts() {
   };
 
   // Delete post
-  const handleDelete = async (id) => {
-    try {
-      await API.delete(`/post/delete/${id}`);
-      fetchPosts();
-    } catch (err) {
-      console.error("Error deleting post:", err);
-    }
-  };
+
+const handleDelete = async (id) => {
+  try {
+    await API.delete(`/user/deletePost/${id}`);
+    fetchPosts();
+  } catch (err) {
+    console.error("Error deleting post:", err);
+  }
+};
+
 
   // Edit post
   const handleEdit = (post) => {
@@ -67,33 +69,31 @@ export default function Posts() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await API.put(`/post/update/${editingPost._id}`, {
+      await API.put(`/user/updatePost/${editingPost._id}`, {
         title: editingPost.title,
         content: editingPost.content,
       });
-      setEditingPost(null);
+      setEditingPost(null);//reset form after update
       fetchPosts();
     } catch (err) {
       console.error("Error updating post:", err);
     }
   };
 
-  // ✅ Handle Like / Unlike
-  const handleLike = async (postId) => {
-    try {
-      const res = await API.post(`/post/like/${postId}`);
-      const updatedPost = res.data.post;
+  
 
-      // Update only the liked post in state
-      setPosts((prevPosts) =>
-        prevPosts.map((p) =>
-          p._id === postId ? { ...p, likedBy: updatedPost.likedBy } : p
-        )
-      );
-    } catch (err) {
-      console.error("Error liking post:", err);
-    }
-  };
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="posts-container">
@@ -153,29 +153,8 @@ export default function Posts() {
               <button onClick={() => handleDelete(post._id)}>Delete</button>
             </div>
 
-            {/* ✅ Like Button + Count */}
-            <div className="like-section">
-              <button onClick={() => handleLike(post._id)}>
-                {post.likedBy?.some(user => (user._id || user).toString() === userId)
-                  ? "👎 Unlike"
-                  : "👍 Like"}
-              </button>
-              <span>{post.likedBy ? post.likedBy.length : 0} Likes</span>
-            </div>
-
-            <div>
-              {post.likedBy?.map((user) => (
-                <span
-                  key={user._id || user}
-                  style={{ marginRight: "8px", color: "green" }}
-                >
-                  {user.name || "Unknown"}
-                </span>
-              ))}
-            </div>
-
-
-          </li>
+           
+         </li>
         ))}
       </ul>
     </div>

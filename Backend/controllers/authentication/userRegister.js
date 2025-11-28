@@ -3,7 +3,8 @@ import bcrypt from "bcrypt";
 
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+// Password: min 6 chars, at least one letter and one number (common but reasonable)
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/;
 
 
 
